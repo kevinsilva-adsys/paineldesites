@@ -1,8 +1,19 @@
-// Lista inicial de municípios e suas URLs
+// CONFIGURAÇÕES DO TELEGRAM
+const TELEGRAM_CONFIGS = [
+    {
+        "token": "7560009900:AAFybrI4nhJh9G--BKkij2ubCH-owOtxpTE",
+        "chat_id": "5334901770"
+    },
+    {
+        "token": "8322506775:AAExfeXuWxxLoFR7f6qaDGcDQJzDmdC2xsY", 
+        "chat_id": "7195267585"
+    }
+];
+
+// Lista de municípios
 const municipios = [
-    {"id": "abaete-mg", "name": "Abaeté - MG", "url": "https://abaete-mg.vivver.com/login"},
     {"id": "alfenas-mg", "name": "Alfenas - MG", "url": "https://www.alfenas-mg.vivver.com/login"},
-    {"id": "alfenas-mg-tst", "name": "Alfenas - MG[TST]", "url": "https://www.alfenas-mg-tst.vivver.com/login"},
+    {"id": "almenara-mg", "name": "Almenara - MG", "url": "https://almenara-mg.vivver.com/login"},
     {"id": "arcos-mg", "name": "Arcos - MG", "url": "https://www.arcos-mg.vivver.com/login"},
     {"id": "belavistademinas-mg", "name": "Bela Vista de Minas - MG", "url": "https://belavistademinas-mg.vivver.com/login"},
     {"id": "berizal-mg", "name": "Berizal - MG", "url": "https://www.berizal-mg.vivver.com/login"},
@@ -12,12 +23,14 @@ const municipios = [
     {"id": "botucatu-sp", "name": "Botucatu - SP", "url": "https://www.botucatu-sp.vivver.com/login"},
     {"id": "buritizeiro-mg", "name": "Buritizeiro - MG", "url": "https://www.buritizeiro-mg.vivver.com/login"},
     {"id": "campanha-mg", "name": "Campanha - MG", "url": "https://www.campanha-mg.vivver.com/login"},
+    {"id": "camposaltos-mg", "name": "Campos Altos - MG", "url": "https://camposaltos-mg.vivver.com/login"},
     {"id": "cantagalo-mg", "name": "Cantagalo - MG", "url": "https://cantagalo-mg.vivver.com/login"},
     {"id": "carai-mg", "name": "Caraí - MG", "url": "https://www.carai-mg.vivver.com/login"},
     {"id": "carmodocajuru-mg", "name": "Carmo do Cajuru - MG", "url": "https://www.carmodocajuru-mg.vivver.com/login"},
     {"id": "carmodoparanaiba-mg", "name": "Carmo do Paranaíba - MG", "url": "http://www.carmodoparanaiba-mg.vivver.com/login"},
     {"id": "cassia-mg", "name": "Cássia - MG", "url": "http://www.cassia-mg.vivver.com/login"},
     {"id": "cataguases-mg", "name": "Cataguases - MG", "url": "http://www.cataguases-mg.vivver.com/login"},
+    {"id": "cislagos-mg", "name": "CISLAGOS - MG", "url": "https://cislagos-mg.vivver.com/login"},
     {"id": "cislap-mg", "name": "CISLAP - MG", "url": "https://cislap-mg.vivver.com/login"},
     {"id": "cisleste-mg", "name": "CISLESTE - MG", "url": "https://www.cisleste-mg.vmx.io/login"},
     {"id": "cisrec-mg", "name": "CISREC - MG", "url": "https://cisrec-mg.vivver.com/login"},
@@ -28,8 +41,7 @@ const municipios = [
     {"id": "convales-mg", "name": "Convales - MG", "url": "https://convales-mg.vivver.com/login"},
     {"id": "coracaodejesus-mg", "name": "Coração de Jesus - MG", "url": "http://www.coracaodejesus-mg.vivver.com/login"},
     {"id": "corinto-mg", "name": "Corinto - MG", "url": "https://corinto-mg.vivver.com/login"},
-    {"id": "corrente-pi", "name": "Corrente - PI[BIG DATA]", "url": "https://corrente.cuidarpi.net/login"},
-    {"id": "tv-corrente-pi", "name": "TV-Corrente - PI[BIG DATA]", "url": "https://c-tv.bigdatasys.net/login"},
+    {"id": "corrente-pi", "name": "Corrente - PI[BIG DATA]", "url": "https://cuidarpi.corrente.saude.pi.gov.br/login"},
     {"id": "curvelo-mg", "name": "Curvelo - MG", "url": "https://curvelo-mg.vivver.com/login"},
     {"id": "diamantina-mg", "name": "Diamantina - MG", "url": "https://www.diamantina-mg.vivver.com/login"},
     {"id": "divinopolis-mg", "name": "Divinópolis - MG", "url": "https://divinopolis-mg.vivver.com/login"},
@@ -37,12 +49,13 @@ const municipios = [
     {"id": "divinopolis-mg-tst", "name": "Divinópolis - MG[TST]", "url": "https://divinopolis-mg-tst.vivver.com/login"},
     {"id": "dombosco-mg", "name": "Dom Bosco - MG", "url": "https://dombosco-mg.vivver.com/login"},
     {"id": "fama-mg", "name": "Fama - MG", "url": "http://www.fama-mg.vivver.com/login"},
+    {"id": "floriano-pi", "name": "Floriano - PI[BIG DATA]", "url": "https://cuidarpi.floriano.saude.pi.gov.br/login"},
     {"id": "franciscosa-mg", "name": "Francisco Sá - MG", "url": "http://www.franciscosa-mg.vivver.com/login"},
     {"id": "governadorvaladares-mg", "name": "Governador Valadares - MG", "url": "https://www.governadorvaladares-mg.vivver.com/login"},
     {"id": "governadorvaladares-mg-dst", "name": "Governador Valadares - MG[DST]", "url": "https://www.app.dst.sms.pref.governadorvaladares-mg.vmx.io/login"},
     {"id": "guape-mg", "name": "Guapé - MG", "url": "https://www.guape-mg.vivver.com/login"},
     {"id": "guaraciaba-mg", "name": "Guaraciaba - MG", "url": "https://guaraciaba-mg.vivver.com/login"},
-    {"id": "ibdsocial-mg", "name": "IBDSocial - MG", "url": "https://ibdsocial-mg.vivver.com/login"},
+    {"id": "guaraciama-mg", "name": "Guaraciama - MG", "url": "http://guaraciama-mg.vivver.com/login"},
     {"id": "igarape-mg", "name": "Igarapé - MG", "url": "https://igarape-mg.vivver.com/login"},
     {"id": "igaratinga-mg", "name": "Igaratinga - MG", "url": "https://www.igaratinga-mg.vivver.com/login"},
     {"id": "itabira-mg", "name": "Itabira - MG", "url": "https://itabira-mg.vivver.com/login"},
@@ -80,7 +93,6 @@ const municipios = [
     {"id": "mogimirim-sp", "name": "Mogi Mirim - SP", "url": "http://www.mogimirim-sp.vivver.com/login"},
     {"id": "mogimirim-sp-tst", "name": "Mogi Mirim - SP[TST]", "url": "https://www.mogimirim-sp-tst.vivver.com/login"},
     {"id": "montesantodeminas-mg", "name": "Monte Santo de Minas - MG", "url": "http://www.montesantodeminas-mg.vivver.com/login"},
-    {"id": "montesiao-mg", "name": "Monte Sião - MG", "url": "http://www.montesiao-mg.vivver.com/login"},
     {"id": "montesclaros-mg", "name": "Montes Claros - MG", "url": "https://www.montesclaros-mg.vivver.com/login"},
     {"id": "montesclaros-mg-tst", "name": "Montes Claros - MG[TST]", "url": "https://montesclaros-mg-tst.vivver.com/login"},
     {"id": "munhoz-mg", "name": "Munhoz - MG", "url": "http://www.munhoz-mg.vivver.com/login"},
@@ -96,13 +108,15 @@ const municipios = [
     {"id": "ourobranco-mg", "name": "Ouro Branco - MG", "url": "http://www.ourobranco-mg.vivver.com/login"},
     {"id": "ourobranco-mg-tst", "name": "Ouro Branco - MG[TST]", "url": "https://ourobranco-mg-tst.vivver.com/login"},
     {"id": "paraguacu-mg", "name": "Paraguaçu - MG", "url": "http://www.paraguacu-mg.vivver.com/login"},
+    {"id": "parnaiba-pi", "name": "Parnaíba - PI[BIG DATA]", "url": "https://cuidarpi.parnaiba.saude.pi.gov.br/login"},
     {"id": "passos-mg", "name": "Passos - MG", "url": "https://www.passos-mg.vivver.com/login"},
     {"id": "passos-mg-tst", "name": "Passos - MG[TST]", "url": "https://www.passos-mg-tst.vivver.com/login"},
     {"id": "patosdeminas-mg", "name": "Patos de Minas - MG", "url": "http://www.patosdeminas-mg.vivver.com/login"},
     {"id": "patosdeminas-mg-tst", "name": "Patos de Minas - MG[TST]", "url": "https://patosdeminas-mg-tst.vivver.com/login"},
     {"id": "pecanha-mg", "name": "Peçanha - MG", "url": "http://www.pecanha-mg.vivver.com/login"},
+    {"id": "picos-pi", "name": "Picos - PI[BIG DATA]", "url": "https://cuidarpi.picos.saude.pi.gov.br/login"},
     {"id": "pirapora-mg", "name": "Pirapora - MG", "url": "https://www.pirapora-mg.vivver.com/login"},
-    {"id": "piripiri-pi", "name": "Piripiri - PI[BIG DATA]", "url": "https://cuidarpi-piripiri.bigdatasys.net/login"},
+    {"id": "piripiri-pi", "name": "Piripiri - PI[BIG DATA]", "url": "https://cuidarpi.piripiri.saude.pi.gov.br/login"},
     {"id": "pitangueiras-sp", "name": "Pitangueiras - SP", "url": "http://www.pitangueiras-sp.vivver.com/login"},
     {"id": "piumhi-mg", "name": "Piumhi - MG", "url": "http://www.piumhi-mg.vivver.com/login"},
     {"id": "pocofundo-mg", "name": "Poço Fundo - MG", "url": "http://www.pocofundo-mg.vivver.com/login"},
@@ -110,19 +124,21 @@ const municipios = [
     {"id": "pontodosvolantes-mg", "name": "Ponto dos Volantes - MG", "url": "http://www.pontodosvolantes-mg.vivver.com/login"},
     {"id": "pousoalegre-mg", "name": "Pouso Alegre - MG", "url": "http://www.pousoalegre-mg.vivver.com/login"},
     {"id": "projetocuidar", "name": "Projeto Cuidar[BIG DATA]", "url": "https://projetocuidar.vivver.com/login"},
-    {"id": "riodoce-mg", "name": "Rio Doce - MG", "url": "http://www.riodoce-mg.vivver.com/login"},
-    {"id": "riopardodeminas-mg", "name": "Rio Pardo de Minas - MG", "url": "http://www.riopardodeminas-mg.vivver.com/login"},
+    {"id": "rioacima-mg", "name": "Rio Acima - MG", "url": "http://rioacima-mg.vivver.com/login"},
+    {"id": "riopardodeminas-mg", "name": "Rio Pardo de Minas - MG", "url": "https://www.riopardodeminas-mg.vivver.com/login"},
     {"id": "salinas-mg", "name": "Salinas - MG", "url": "https://www.salinas-mg.vivver.com/login"},
     {"id": "santabarbara-mg", "name": "Santa Bárbara - MG", "url": "https://www.santabarbara-mg.vivver.com/login"},
     {"id": "santoantoniodomonte-mg", "name": "Santo Antônio do Monte - MG", "url": "http://www.santoantoniodomonte-mg.vivver.com/login"},
     {"id": "saodomingosdoprata-mg", "name": "São Domingos do Prata - MG", "url": "https://saodomingosdoprata-mg.vivver.com/login"},
     {"id": "saogotardo-mg", "name": "São Gotardo - MG", "url": "https://saogotardo-mg.vivver.com/login"},
+    {"id": "saojoao-pi", "name": "São João - PI[BIG DATA]", "url": "https://cuidarpi.saojoao.saude.pi.gov.br/login"},
     {"id": "saojoaonepomuceno-mg", "name": "São João Nepomuceno - MG", "url": "http://www.saojoaonepomuceno-mg.vivver.com/login"},
     {"id": "saoluis-ma", "name": "São Luís - MA", "url": "https://saoluis-ma.vivver.com/login"},
     {"id": "tv-3-saoluis-ma", "name": "TV-São Luís - MA", "url": "https://tv-saoluis-ma.vivver.com"},
     {"id": "saoluis-ma-tst", "name": "São Luís - MA[TST]", "url": "https://saoluis-ma-tst.vivver.com/login"},
     {"id": "saomigueldoguama-pa", "name": "São Miguel do Guamá - PA[CRESCER]", "url": "https://saomigueldoguama-pa.crescer.net/login"},
     {"id": "saomigueldoguama-pa-tst", "name": "São Miguel do Guamá - PA[CRESCER][TST]", "url": "https://saomigueldoguama-pa-tst.crescer.net/login"},
+    {"id": "saoraimundononato-pi", "name": "São Raimundo Nonato - PI[BIG DATA]", "url": "https://cuidarpi.saoraimundononato.saude.pi.gov.br/login"},
     {"id": "saosebastiaodooeste-mg", "name": "São Sebastião do Oeste - MG", "url": "http://www.saosebastiaodooeste-mg.vivver.com/login"},
     {"id": "sarzedo-mg", "name": "Sarzedo - MG", "url": "http://www.sarzedo-mg.vivver.com/login"},
     {"id": "serrania-mg", "name": "Serrania - MG", "url": "http://www.serrania-mg.vivver.com/login"},
@@ -146,332 +162,383 @@ const municipios = [
     {"id": "tv-4", "name": "TV-4", "url": "https://tv4-fila.vivver.com"}
 ];
 
-// Container da página
+// ===============================
+// CONTROLE GLOBAL
+// ===============================
+let atualizacaoEmAndamento = false;
+
+// ===============================
+// CONTAINER
+// ===============================
 const container = document.getElementById("municipios");
 const updateInfo = document.getElementById("update-info");
+
 let resultados = [];
 let todosMunicipios = [];
+let statusAnterior = {};
 
-// Função para criar botão com link
-function criarBotaoMunicipio(municipio, status, versao = null) {
-  const button = document.createElement("button");
-  button.className = `municipio-btn ${status ? 'ok' : 'erro'}`;
-  
-  let versaoHtml = '';
-  if (versao) {
-    versaoHtml = `<span class="municipio-version">${versao}</span>`;
-  }
-  
-  button.innerHTML = `
-    <span class="municipio-name">${municipio.name}</span>
-    ${versaoHtml}
-    <span class="municipio-status">${status ? 'Online' : 'Offline'}</span>
-  `;
-  
-  button.onclick = () => {
-    window.open(municipio.url, '_blank');
-  };
-  
-  button.title = `${municipio.url} - ${status ? 'Acessível' : 'Inacessível'}${versao ? ` - Versão: ${versao}` : ''}`;
-  
-  return button;
-}
+// ===============================
+// TELEGRAM
+// ===============================
+async function enviarAlertaTelegram(site, statusCode) {
+    const message = `${site.name}
+${site.url}
+[QUEDA]
+Status: ${statusCode}
+Hora: ${new Date().toLocaleString('pt-BR')}`;
 
-// Função para extrair a versão do HTML
-function extrairVersao(html) {
-  try {
-    // Criar um parser de HTML
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-    
-    // Procurar o elemento que contém a versão
-    const versaoElement = doc.querySelector('.vmx-login-versao');
-    if (versaoElement) {
-      // Extrair o texto e limpar
-      const texto = versaoElement.textContent || '';
-      const match = texto.match(/Versão:\s*(v[\d.]+)/i);
-      if (match && match[1]) {
-        return match[1];
-      }
-      
-      // Tentativa alternativa se o padrão for diferente
-      const versaoMatch = texto.match(/v[\d.]+/);
-      if (versaoMatch) {
-        return versaoMatch[0];
-      }
-    }
-    
-    // Tentar encontrar por outros padrões comuns
-    const metaVersao = doc.querySelector('meta[name="version"], meta[name="versao"]');
-    if (metaVersao) {
-      return metaVersao.getAttribute('content');
-    }
-    
-    return null;
-  } catch (error) {
-    console.error('Erro ao extrair versão:', error);
-    return null;
-  }
-}
-
-// Nova função de verificação mais robusta com busca de versão
-async function verificarStatus(municipio) {
-  let versao = null;
-  
-  try {
-    // Tentativa 1: Usando fetch com modo 'cors' para obter HTML completo
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000);
-    
-    try {
-      const response = await fetch(municipio.url, {
-        method: 'GET',
-        mode: 'cors',
-        cache: 'no-store',
-        signal: controller.signal,
-        headers: {
-          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-          'Cache-Control': 'no-cache',
-          'Pragma': 'no-cache'
+    for (const config of TELEGRAM_CONFIGS) {
+        try {
+            const url = `https://api.telegram.org/bot${config.token}/sendMessage`;
+            await axios.post(url, {
+                chat_id: config.chat_id,
+                text: message
+            });
+            console.log(`Alerta enviado: ${site.name}`);
+        } catch (error) {
+            console.error('Erro Telegram:', error);
         }
-      });
-      
-      clearTimeout(timeoutId);
-      
-      // Verifica se a resposta é válida (status entre 200-399)
-      if (response.status >= 200 && response.status < 400) {
-        const html = await response.text();
-        versao = extrairVersao(html);
-        return { status: true, versao };
-      }
-      return { status: false, versao: null };
-    } catch (fetchError) {
-      clearTimeout(timeoutId);
-      // Se falhar com CORS, tentar método alternativo
     }
-    
-    // Tentativa 2: Usando fetch com modo 'no-cors' mas verificando tipo de erro
+}
+
+// ===============================
+// BOTÃO
+// ===============================
+function criarBotaoMunicipio(municipio, status, versao = null) {
+    const button = document.createElement("button");
+    button.className = `municipio-btn ${status ? 'ok' : 'erro'}`;
+
+    button.innerHTML = `
+        <span class="municipio-name">${municipio.name}</span>
+        ${versao ? `<span class="municipio-version">${versao}</span>` : ''}
+        <span class="municipio-status">${status ? 'Online' : 'Offline'}</span>
+    `;
+
+    button.onclick = () => window.open(municipio.url, '_blank');
+    button.title = `${municipio.url}\nStatus: ${status ? 'Online' : 'Offline'}`;
+
+    return button;
+}
+
+// ===============================
+// EXTRAIR VERSÃO (CORRIGIDO)
+// ===============================
+function extrairVersao(html) {
     try {
-      const controller2 = new AbortController();
-      const timeoutId2 = setTimeout(() => controller2.abort(), 8000);
-      
-      const response = await fetch(municipio.url, {
-        method: 'GET',
-        mode: 'no-cors',
-        cache: 'no-store',
-        signal: controller2.signal
-      });
-      
-      clearTimeout(timeoutId2);
-      
-      // No modo 'no-cors', não podemos ler a resposta, mas podemos tentar uma requisição separada para a versão
-      // Tentar buscar apenas a versão com uma requisição específica
-      try {
-        const versaoResponse = await fetch(`${municipio.url}/api/version`, {
-          method: 'GET',
-          mode: 'no-cors',
-          signal: AbortSignal.timeout(3000)
-        }).catch(() => null);
+        // Verificar se recebemos HTML válido
+        if (!html || html.length < 100) return null;
         
-        // Se não conseguir a versão por API, pelo menos sabemos que o site está online
-        return { status: true, versao: null };
-      } catch {
-        return { status: true, versao: null };
-      }
-    } catch (noCorsError) {
-      // Se falhar também com no-cors, provavelmente está offline
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+
+        // Procurar versão em diferentes formatos
+        const versaoElement = doc.querySelector('.vmx-login-versao, .versao, .version');
+        if (versaoElement) {
+            const texto = versaoElement.textContent || '';
+            const match = texto.match(/v?(\d+\.\d+\.\d+)/i);
+            if (match) return 'v' + match[1];
+        }
+
+        // Procurar em meta tags
+        const metaVersao = doc.querySelector('meta[name="version"], meta[name="versao"]');
+        if (metaVersao) {
+            const content = metaVersao.getAttribute('content');
+            if (content) {
+                const match = content.match(/v?(\d+\.\d+\.\d+)/i);
+                if (match) return 'v' + match[1];
+            }
+        }
+
+        return null;
+    } catch {
+        return null;
     }
-    
-    // Tentativa 3: Usando XMLHttpRequest (mais compatível)
-    try {
-      const resultado = await new Promise((resolve) => {
-        const xhr = new XMLHttpRequest();
-        xhr.timeout = 8000;
-        
-        xhr.onload = () => {
-          if (xhr.status >= 200 && xhr.status < 400) {
-            const versao = extrairVersao(xhr.responseText);
-            resolve({ status: true, versao });
-          } else {
-            resolve({ status: false, versao: null });
-          }
-        };
-        
-        xhr.onerror = () => resolve({ status: false, versao: null });
-        xhr.ontimeout = () => resolve({ status: false, versao: null });
-        
-        xhr.open('GET', municipio.url);
-        xhr.send();
-      });
-      
-      return resultado;
-    } catch (xhrError) {
-      return { status: false, versao: null };
+}
+
+// ===============================
+// VERIFICAR STATUS (CORRIGIDO)
+// ===============================
+async function verificarStatus(municipio) {
+    // Lista de proxies para tentar
+    const proxies = [
+        `https://api.allorigins.win/get?url=${encodeURIComponent(municipio.url)}`,
+        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(municipio.url)}`,
+        `https://cors-anywhere.herokuapp.com/${municipio.url}`
+    ];
+
+    // Tentar cada proxy
+    for (const proxyUrl of proxies) {
+        try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 8000);
+
+            const response = await fetch(proxyUrl, { 
+                signal: controller.signal,
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+                }
+            });
+
+            clearTimeout(timeoutId);
+
+            if (response.ok) {
+                let html = '';
+                
+                // Extrair HTML da resposta (formato diferente para cada proxy)
+                if (proxyUrl.includes('allorigins')) {
+                    const data = await response.json();
+                    html = data.contents;
+                } else {
+                    html = await response.text();
+                }
+
+                // Verificar se recebemos HTML válido (não é página de erro)
+                if (html && html.length > 500 && !html.includes('Access denied')) {
+                    const versao = extrairVersao(html);
+                    
+                    // IMPORTANTE: Se conseguimos o HTML, o site está online!
+                    // Mesmo sem versão, retornamos status true
+                    return { 
+                        status: true, 
+                        versao: versao || 'Online' 
+                    };
+                }
+            }
+        } catch (error) {
+            // Continuar para o próximo proxy
+            continue;
+        }
     }
-    
-  } catch (error) {
-    console.error(`Erro ao verificar ${municipio.name}:`, error);
+
+    // Se todas as tentativas falharem, considerar offline
     return { status: false, versao: null };
-  }
 }
 
-// Função para verificar status com múltiplas tentativas
-async function verificarStatusComTentativas(municipio, tentativas = 2) {
-  for (let i = 0; i < tentativas; i++) {
-    const resultado = await verificarStatus(municipio);
-    if (resultado.status) return resultado;
+// ===============================
+// TESTAR TELEGRAM
+// ===============================
+async function testarTelegram() {
+    const feedback = document.getElementById('shareFeedback');
+    feedback.textContent = 'Enviando teste...';
+    feedback.style.color = 'orange';
     
-    // Aguardar um pouco antes de tentar novamente
-    if (i < tentativas - 1) {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-    }
-  }
-  return { status: false, versao: null };
-}
-
-// Atualizar painel
-async function atualizarPainel() {
-  console.log('Atualizando painel...');
-  
-  container.innerHTML = '<div class="loading">Carregando...</div>';
-  
-  // Verificar status de todos os municípios em paralelo, mas com limitação de concorrência
-  const statusPromises = [];
-  const concorrenciaMaxima = 5;
-  
-  for (let i = 0; i < municipios.length; i += concorrenciaMaxima) {
-    const lote = municipios.slice(i, i + concorrenciaMaxima);
-    const promisesLote = lote.map(async (municipio) => {
-      const resultado = await verificarStatusComTentativas(municipio);
-      return { municipio, status: resultado.status, versao: resultado.versao };
-    });
-    
-    const resultadosLote = await Promise.allSettled(promisesLote);
-    
-    resultadosLote.forEach(resultado => {
-      if (resultado.status === 'fulfilled') {
-        statusPromises.push(resultado.value);
-      } else {
-        console.error('Erro ao verificar município:', resultado.reason);
-        statusPromises.push({ 
-          municipio: resultado.reason.municipio || {name: 'Desconhecido'}, 
-          status: false,
-          versao: null
-        });
-      }
-    });
-    
-    // Atualizar interface parcialmente a cada lote
-    resultados = [...statusPromises];
-    todosMunicipios = [...resultados];
-    resultados.sort((a, b) => a.status === b.status ? 0 : a.status ? 1 : -1);
-    renderizarMunicipios();
-    
-    // Pequena pausa entre lotes para não sobrecarregar
-    await new Promise(resolve => setTimeout(resolve, 500));
-  }
-  
-  atualizarInfoTempo();
-}
-
-// Renderizar municípios na tela
-function renderizarMunicipios() {
-  container.innerHTML = '';
-  
-  resultados.forEach(({ municipio, status, versao }) => {
-    const botao = criarBotaoMunicipio(municipio, status, versao);
-    container.appendChild(botao);
-  });
-}
-
-// Filtrar municípios pela barra de pesquisa
-function filtrarMunicipios() {
-  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-  
-  if (!searchTerm) {
-    resultados = [...todosMunicipios];
-  } else {
-    resultados = todosMunicipios.filter(({ municipio }) => 
-      municipio.name.toLowerCase().includes(searchTerm)
+    await enviarAlertaTelegram(
+        { name: "TESTE DO SISTEMA", url: window.location.href },
+        "Teste"
     );
-  }
-  
-  // Reordenar após filtrar
-  resultados.sort((a, b) => {
-    if (a.status === b.status) return 0;
-    return a.status ? 1 : -1;
-  });
-  
-  renderizarMunicipios();
+    
+    feedback.textContent = 'Teste enviado!';
+    feedback.style.color = 'green';
+    setTimeout(() => {
+        feedback.textContent = '';
+    }, 3000);
 }
 
-// Função para compartilhar link do painel
-function compartilharPainel() {
-  const link = window.location.href;
-  navigator.clipboard.writeText(link)
-    .then(() => {
-      const feedback = document.getElementById('shareFeedback');
-      feedback.textContent = '✓ Link copiado!';
-      feedback.style.color = 'green';
-      
-      setTimeout(() => {
-        feedback.textContent = '';
-      }, 2000);
-    })
-    .catch(err => {
-      console.error('Erro ao copiar link:', err);
-      alert('Erro ao copiar link. Tente manualmente: ' + window.location.href);
+// ===============================
+// ATUALIZAÇÃO PRINCIPAL (CORRIGIDA)
+// ===============================
+async function atualizarPainel() {
+    if (atualizacaoEmAndamento) return;
+    atualizacaoEmAndamento = true;
+
+    console.log("Iniciando varredura completa...");
+
+    const novosResultados = [];
+    const concorrenciaMaxima = 3; // Reduzido para não sobrecarregar
+
+    // Processar em lotes
+    for (let i = 0; i < municipios.length; i += concorrenciaMaxima) {
+        const lote = municipios.slice(i, i + concorrenciaMaxima);
+
+        const promessas = lote.map(async (municipio) => {
+            try {
+                const resultado = await verificarStatus(municipio);
+                const chave = municipio.url;
+
+                // Verificar se houve queda (estava online e agora está offline)
+                if (statusAnterior[chave] === true && !resultado.status) {
+                    console.log(`QUEDA DETECTADA: ${municipio.name}`);
+                    await enviarAlertaTelegram(municipio, "Offline");
+                }
+
+                // Atualizar status anterior
+                statusAnterior[chave] = resultado.status;
+
+                return {
+                    municipio,
+                    status: resultado.status,
+                    versao: resultado.versao
+                };
+            } catch (error) {
+                console.error(`Erro ao verificar ${municipio.name}:`, error);
+                return {
+                    municipio,
+                    status: false,
+                    versao: null
+                };
+            }
+        });
+
+        const resolvidos = await Promise.allSettled(promessas);
+
+        resolvidos.forEach(r => {
+            if (r.status === "fulfilled") {
+                novosResultados.push(r.value);
+            }
+        });
+
+        // Atualizar resultados parciais
+        resultados = [...novosResultados];
+        todosMunicipios = [...resultados];
+
+        // Ordenar: online primeiro, depois offline
+        resultados.sort((a, b) => {
+            if (a.status && !b.status) return -1;
+            if (!a.status && b.status) return 1;
+            return 0;
+        });
+
+        renderizarMunicipios();
+
+        // Pequena pausa entre lotes
+        await new Promise(r => setTimeout(r, 300));
+    }
+
+    atualizarInfoTempo();
+    atualizacaoEmAndamento = false;
+    console.log("Varredura finalizada.");
+}
+
+// ===============================
+// RENDER
+// ===============================
+function renderizarMunicipios() {
+    container.innerHTML = '';
+
+    const online = resultados.filter(r => r.status).length;
+    const offline = resultados.filter(r => !r.status).length;
+
+    const onlineEl = document.getElementById('onlineCount');
+    const offlineEl = document.getElementById('offlineCount');
+    
+    if (onlineEl) onlineEl.textContent = online;
+    if (offlineEl) offlineEl.textContent = offline;
+
+    resultados.forEach(({ municipio, status, versao }) => {
+        container.appendChild(criarBotaoMunicipio(municipio, status, versao));
     });
 }
 
-// Informação de atualização
-function atualizarInfoTempo() {
-  const agora = new Date();
-  const proxima = new Date(agora.getTime() + 5 * 60 * 1000);
-  
-  updateInfo.innerHTML = `
-    <div>Última atualização: <strong>${agora.toLocaleTimeString()}</strong></div>
-    <div>Próxima atualização: <strong>${proxima.toLocaleTimeString()}</strong></div>
-    <div>Atualização automática a cada 5 minutos</div>
-  `;
+// ===============================
+// FILTRAR MUNICÍPIOS
+// ===============================
+function filtrarMunicipios() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    
+    if (!searchTerm) {
+        resultados = [...todosMunicipios];
+    } else {
+        resultados = todosMunicipios.filter(({ municipio }) => 
+            municipio.name.toLowerCase().includes(searchTerm)
+        );
+    }
+    
+    // Manter ordenação
+    resultados.sort((a, b) => {
+        if (a.status && !b.status) return -1;
+        if (!a.status && b.status) return 1;
+        return 0;
+    });
+    
+    renderizarMunicipios();
 }
 
-// Inicializar e configurar intervalo
-function iniciarPainel() {
-  atualizarPainel();
-  setInterval(atualizarPainel, 5 * 60 * 1000); // 5 minutos
-  
-  // Atualizar contador a cada minuto
-  setInterval(atualizarInfoTempo, 60000);
+// ===============================
+// COMPARTILHAR
+// ===============================
+function compartilharPainel() {
+    const link = window.location.href;
+    navigator.clipboard.writeText(link)
+        .then(() => {
+            const feedback = document.getElementById('shareFeedback');
+            feedback.textContent = '✓ Link copiado!';
+            feedback.style.color = 'green';
+            setTimeout(() => {
+                feedback.textContent = '';
+            }, 2000);
+        })
+        .catch(err => {
+            console.error('Erro ao copiar link:', err);
+            alert('Erro ao copiar link. Copie manualmente: ' + window.location.href);
+        });
 }
 
-// Iniciar quando carregar
-document.addEventListener('DOMContentLoaded', iniciarPainel);
-
-// Também iniciar se já estiver carregado
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', iniciarPainel);
-} else {
-  iniciarPainel();
-}
-
-// Função para exportar lista de municípios e versões em TXT
+// ===============================
+// EXPORTAR
+// ===============================
 function exportarMunicipios() {
-  if (!todosMunicipios.length) {
-    alert("Aguarde o carregamento do painel.");
-    return;
-  }
+    if (!todosMunicipios.length) {
+        alert("Aguarde o carregamento do painel.");
+        return;
+    }
 
-  let conteudo = "Lista de Municípios - " + new Date().toLocaleString() + "\n\n";
-  todosMunicipios.forEach(({ municipio, versao }) => {
-    conteudo += `${municipio.name}\n`;
-    conteudo += `Versão: ${versao ? versao : "Não localizada"}\n\n`;
-  });
+    let conteudo = "Lista de Municípios - " + new Date().toLocaleString() + "\n\n";
+    todosMunicipios.forEach(({ municipio, status, versao }) => {
+        conteudo += `${municipio.name}\n`;
+        conteudo += `Status: ${status ? 'Online' : 'Offline'}\n`;
+        conteudo += `Versão: ${versao || 'Não localizada'}\n`;
+        conteudo += `${municipio.url}\n\n`;
+    });
 
-  const blob = new Blob([conteudo], { type: "text/plain;charset=utf-8" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = "municipios.txt";
-  link.click();
+    const blob = new Blob([conteudo], { type: "text/plain;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `municipios_${new Date().toISOString().slice(0,10)}.txt`;
+    link.click();
 }
 
+// ===============================
+// INFO TEMPO
+// ===============================
+function atualizarInfoTempo() {
+    const agora = new Date();
+    const proxima = new Date(agora.getTime() + 5 * 60 * 1000);
+
+    updateInfo.innerHTML = `
+        <div>Última atualização: <strong>${agora.toLocaleTimeString()}</strong></div>
+        <div>Próxima atualização: <strong>${proxima.toLocaleTimeString()}</strong></div>
+        <div>Atualização automática a cada 5 minutos</div>
+        <div style="margin-top: 10px; font-size: 12px; color: #00ff88;">
+            Telegram: ${TELEGRAM_CONFIGS.length} bots ativos
+        </div>
+    `;
+}
+
+// ===============================
+// LOOP PRINCIPAL
+// ===============================
+async function iniciarPainel() {
+    // Primeira execução imediata
+    await atualizarPainel();
+
+    // Loop a cada 5 minutos
+    setInterval(async () => {
+        console.log("Iniciando nova verificação...");
+        await atualizarPainel();
+    }, 5 * 60 * 1000);
+}
+
+// ===============================
+// START
+// ===============================
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', iniciarPainel);
+} else {
+    iniciarPainel();
+}
+
+// Exportar funções para o escopo global
+window.filtrarMunicipios = filtrarMunicipios;
+window.compartilharPainel = compartilharPainel;
+window.exportarMunicipios = exportarMunicipios;
+window.testarTelegram = testarTelegram;

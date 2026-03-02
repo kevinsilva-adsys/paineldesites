@@ -5,22 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel de Municípios</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
   <div class="header">
     <h1>Painel de Municípios</h1>
+    <div class="status-indicators">
+      <span class="status-badge online"> Online: <span id="onlineCount">0</span></span>
+      <span class="status-badge offline"> Offline: <span id="offlineCount">0</span></span>
+    </div>
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="Pesquisar município..." oninput="filtrarMunicipios()">
     </div>
     <div class="share-container">
       <button id="shareBtn" onclick="compartilharPainel()">Compartilhar Painel</button>
       <button id="exportBtn" onclick="exportarMunicipios()">Exportar Lista TXT</button>
+      <button id="telegramTestBtn" onclick="testarTelegram()">Testar Telegram</button>
       <span id="shareFeedback"></span>
     </div>
   </div>
   
   <div id="municipios" class="municipios-container"></div>
-
   <div id="update-info" class="update-info"></div>
 
   <script src="script.js"></script>
